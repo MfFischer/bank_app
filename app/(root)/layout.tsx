@@ -1,14 +1,18 @@
 import MobileNav from "@/components/MobileNav";
+import { getLoggedInUser } from "@/lib/actions/user.actions";
 import { Sidebar } from "lucide-react";
 import Image from "next/image";
+import { redirect } from "next/navigation";
+import { useRouter } from "next/router";
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const loggedIn = { firstName: 'Maria Fe', lastName: 'Fischer'};
+  const loggedIn = await getLoggedInUser();
 
+  if(!loggedIn) redirect('/sign-in')
 
   return (
     <main className="flex h-screen w-full font-enter">

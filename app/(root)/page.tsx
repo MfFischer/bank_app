@@ -1,10 +1,11 @@
 import RightSidebar from '@/components/RightSidebar';
 import TotalBalanceBox from '@/components/TotalBalanceBox';
 import HeaderBox from '@/components/ui/HeaderBox';
+import { getLoggedInUser } from '@/lib/actions/user.actions';
 import React from 'react';
 
 const Home = () => {
-  const loggedIn = { firstName: 'Maria Fe', lastName: 'Fischer', email: 'afefischer@gmail.com' };
+  const loggedIn = getLoggedInUser();
 
   return (
     <section className="home">
@@ -14,7 +15,7 @@ const Home = () => {
             type="greeting"
             title="Welcome"
             user={loggedIn?.firstName || 'Guest'} // Fixed the capitalization of firstName
-            subtext="Access and manage your account and transactions efficiently."
+            subtext="Seamless Banking Integration."
           />
 
           <TotalBalanceBox
