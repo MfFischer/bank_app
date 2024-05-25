@@ -24,7 +24,7 @@ const Sidebar = ({ user }: SidebarProps) => {
             alt="Horizon logo"
             className="w-8 h-8" // Corrected class names
           />
-          <h1 className="sidebar-logo">Horizon</h1>
+          <h1 className="sidebar-logo">Fintegrate</h1>
         </Link>
 
         {sidebarLinks.map((item) => {
