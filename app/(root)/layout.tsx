@@ -1,9 +1,8 @@
 import MobileNav from "@/components/MobileNav";
+import Sidebar from "@/components/Sidebar";
 import { getLoggedInUser } from "@/lib/actions/user.actions";
-import { Sidebar } from "lucide-react";
 import Image from "next/image";
 import { redirect } from "next/navigation";
-import { useRouter } from "next/router";
 
 export default async function RootLayout({
   children,
@@ -15,19 +14,18 @@ export default async function RootLayout({
   if(!loggedIn) redirect('/sign-in')
 
   return (
-    <main className="flex h-screen w-full font-enter">
-        <Sidebar user={loggedIn}/>
+    <main className="flex h-screen w-full font-inter">
+      <Sidebar user={loggedIn} />
 
-        <div className="flex size-full flex-col">
-          <div className="root-layout">
-            <Image src="/icons/lgo.svg" width={30} height={30} alt='logo'/>
-            <div>
-              <MobileNav user={loggedIn}/>
-            </div>
-
+      <div className="flex size-full flex-col">
+        <div className="root-layout">
+          <Image src="/icons/logo.svg" width={30} height={30} alt="logo" />
+          <div>
+            <MobileNav user={loggedIn} />
           </div>
-          {children}
-        </div>  
+        </div>
+        {children}
+      </div>
     </main>
   );
 }
